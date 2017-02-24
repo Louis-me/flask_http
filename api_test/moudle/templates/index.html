@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><a href="{{ url_for('moudle.add_moudle_h')}}">新增模块</a></div>
+  <table id="moudle">
+    <thead>
+        <tr>
+            <th>模块名</th>
+            <th>域名</th>
+            <th>端口</th>
+            <th>请求头</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if moudles != None  %}
+        {% for item in moudles%}
+                <tr>
+                    <td>{{item.title}}</td>
+                    <td>{{item.host}}</td>
+                    <td>{{item.port}}</td>
+                    <td>{{item.header}}</td>
+                    <td><a href="{{ url_for('moudle.mondule_info', id=item.id) }}">查看详情</a></td>
+                </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+  </table>
+
+</body>
+</html>

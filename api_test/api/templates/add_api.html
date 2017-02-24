@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{{ url_for('api.add_api') }}" method=post class=add_api>
+      <ul>
+        <li>名称<input type="text" size="10" name="title"></li>
+        <li>url<input type="text" size="10" name="url"></li>
+        <li>method<input type="text" size="10" name="m_method" ></li>
+        <li>参数<textarea name="param" ></textarea></li>
+        <li>预期值<textarea  name="hope_result" ></textarea></li>
+        <input type="hidden"  name="mondule_id" value="{{request.args.get('id')}}" >
+        <li>
+            <input type="submit">
+        </li>
+      </ul>
+    </form>
+</body>
+</html>

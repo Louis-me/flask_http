@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="{{ url_for('moudle.add_moudle') }}" method=post class=add_moudle>
+      <ul>
+        <li>名称<input type="text" size="10" name="title"></li>
+        <li>域名<input type="text" size="10" name="host"></li>
+        <li>端口<input type="number" size="10" name="port" ></li>
+        <li>请求头<textarea  name="header" ></textarea></li>
+        <li>
+          <input type="submit">
+        </li>
+      </ul>
+    </form>
+</body>
+</html>

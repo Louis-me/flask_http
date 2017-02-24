@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><a href="{{ url_for('api.add_api_h', id=id) }}">新增api</a></div>
+<div><a href="/test_api.html">开始测试</a></div>
+  <table id="api">
+    <thead>
+        <tr>
+            <th>标题</th>
+            <th>url</th>
+            <th>method</th>
+            <th>请求参数</th>
+            <th>预期值</th>
+            <th>实际值</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if apis != None %}
+    {% for item in apis %}
+        <tr id="{{item.id}}">
+            <td>{{item.title}}</td>
+            <td>{{item.url}}</td>
+            <td>{{item.method}}</td>
+            <td>{{item.param}}</td>
+            <td>{{item.hope_result}}</td>
+            {%if item.result == 0 %}
+            <td>未测试</td>
+            {% endif %}
+            {% if item.result == 1 %}
+             <td>通过</td>
+            {% endif %}
+             {% if item.result == 2 %}
+            <td>失败</td>
+             {% endif %}
+            <td>
+                <button class="del" >删除</button>
+            </td>
+        </tr>
+    {% endfor %}
+    {% endif %}
+    </tbody>
+  </table>
+<script src="{{url_for('static', filename='jquery-1.11.2.min.js')}}"></script>
+<script src="{{url_for('static', filename='moudle.js')}}"></script>
+
+</body>
+</html>
