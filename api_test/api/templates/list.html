@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="{{url_for('api.static', filename='jquery-1.11.2.min.js')}}"></script>
+    <script src="{{url_for('api.static', filename='moudle.js')}}"></script>
+
 </head>
 <body>
 <div><a href="{{ url_for('api.add_api_h', id=id) }}">新增api</a></div>
@@ -45,8 +48,5 @@
     {% endif %}
     </tbody>
   </table>
-<script src="{{url_for('static', filename='jquery-1.11.2.min.js')}}"></script>
-<script src="{{url_for('static', filename='moudle.js')}}"></script>
-
 </body>
 </html>

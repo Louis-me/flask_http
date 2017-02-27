@@ -12,14 +12,13 @@ $(function(){
 //         }
 //      });
  $(".del").click(function(){
-  //var user8ID = $.trim( $('#user8ID').val() );
-  var statu = confirm("确定要删除吗?");
+  var statu = confirm("确定要删除吗?1");
   if(!statu){
    return false;
   }
   $.ajax({
     type:'POST',
-    url:'/del_api',
+    url:'../del_api',
     data:'id='+$(this).parents("tr").attr("id"),
     success:function(data){
       if(data["msg"] == 1){
@@ -31,7 +30,7 @@ $(function(){
       location.reload() ;
     },
     error:function(){
-      alert( 'Delete Failed!' );
+      alert( 'Delete error!' );
     }
    });
  })

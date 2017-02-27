@@ -3,20 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="{{url_for('api.static', filename='jquery-1.11.2.min.js')}}"></script>
+        <!--<script src="{{url_for('api.static', filename='add_api.js')}}"></script>-->
+
+
 </head>
 <body>
 <form action="{{ url_for('api.add_api') }}" method=post class=add_api>
       <ul>
         <li>名称<input type="text" size="10" name="title"></li>
         <li>url<input type="text" size="10" name="url"></li>
-        <li>method<input type="text" size="10" name="m_method" ></li>
-        <li>参数<textarea name="param" ></textarea></li>
-        <li>预期值<textarea  name="hope_result" ></textarea></li>
-        <input type="hidden"  name="mondule_id" value="{{request.args.get('id')}}" >
-        <li>
-            <input type="submit">
+        <li>method<select id="sel_method">
+            <option value="0">get</option>
+            <option value="1">post</option>
+        </select></li>
+          <li><p id="btn_param" style="cursor:pointer">新增请求参数</p></li>
+        <li class="param">
+            参数
+            <input type="text" name="param_name">
+            <select class="sel_pram_type">
+              <option value="0">数值型</option>
+              <option value="1">字符串</option>
+              <option value="2">浮点</option>
+            </select>
+            <select class="sel_param_value">
+                <option value="0">非必填</option>
+                <option value="1">必填</option>
+            </select>
+        </li>
+           <li><p id="btn_param_hope" style="cursor:pointer">新增响应参数</p></li>
+           <li class="param_hope">预期值
+            <input type="text" name="param_hope_name">
+            <select class="sel_pram_hope_type">
+              <option value="0">数值型</option>
+              <option value="1">字符串</option>
+              <option value="2">浮点</option>
+            </select>
+            <select class="sel_param_hope_value">
+                <option value="0">非必填</option>
+                <option value="1">必填</option>
+            </select>
         </li>
       </ul>
+      <input type="hidden"  name="mondule_id" value="{{request.args.get('id')}}" >
+      <input type="submit">
     </form>
 </body>
 </html>

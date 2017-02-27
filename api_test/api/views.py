@@ -5,7 +5,7 @@ import db_base, const
 from api_test.utilities import *
 
 mysqlet = db_base.MySQLet(host="127.0.0.1", user="root", password="", charset="utf8", database="api", port=3306)
-api = Blueprint('api', __name__, template_folder='templates')
+api = Blueprint('api', __name__, template_folder='templates',  static_folder='static')
 
 @api.route("/list/<id>", methods=['GET'])
 def list(id):

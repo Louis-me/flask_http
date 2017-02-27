@@ -5,7 +5,7 @@ import db_base, const
 from api_test.utilities import *
 from api_test import api
 mysqlet = db_base.MySQLet(host="127.0.0.1", user="root", password="", charset="utf8", database="api", port=3306)
-moudle = Blueprint('moudle', __name__, template_folder='templates')
+moudle = Blueprint('moudle', __name__, template_folder='templates', static_folder='static')
 
 @moudle.route('/')
 def index():
@@ -19,11 +19,11 @@ def add_moudle_h():
 
 @moudle.route('/mondule_info/<id>')
 def mondule_info(id):
-    # apis = (mysqlet.findKeySql(const.FIND_ALL_BY_ATTR, table="api_info", criteria= {"where": "m_id=" + id}, whole=True))
-    # print(apis)
-    # id = id
-    # return render_template('mondule_info.html', apis=apis, id=id)
-    return redirect(url_for("api.list", id=id))
+    apis = (mysqlet.findKeySql(const.FIND_ALL_BY_ATTR, table="api_info", criteria= {"where": "m_id=" + id}, whole=True))
+    print(apis)
+    id = id
+    return render_template('mondule_info.html', apis=apis, id=id)
+    # return redirect(url_for("api.list", id=id))
 
 @moudle.route('/add_moudle', methods=['POST'])
 def add_moudle():

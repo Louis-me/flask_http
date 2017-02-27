@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="{{url_for('api.static', filename='jquery-1.11.2.min.js')}}"></script>
+    <!--<script src="{{url_for('api.static', filename='moudle.js')}}"></script>-->
+
 </head>
 <body>
-<div><a href="{{ url_for('api.add_api_h', id=moudle.id) }}">新增api</a></div>
+<div><a href="{{ url_for('api.add_api_h', id=id) }}">新增api</a></div>
 <div><a href="/test_api.html">开始测试</a></div>
   <table id="api">
     <thead>
@@ -20,8 +23,8 @@
         </tr>
     </thead>
     <tbody>
-    {% if moudle.apis != None %}
-    {% for item in moudle.apis %}
+    {% if apis != None %}
+    {% for item in apis %}
         <tr id="{{item.id}}">
             <td>{{item.title}}</td>
             <td>{{item.url}}</td>
@@ -45,8 +48,7 @@
     {% endif %}
     </tbody>
   </table>
-<script src="{{url_for('static', filename='jquery-1.11.2.min.js')}}"></script>
-<script src="{{url_for('static', filename='moudle.js')}}"></script>
+
 
 </body>
 </html>

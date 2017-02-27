@@ -24,7 +24,7 @@
                     <td>{{item.host}}</td>
                     <td>{{item.port}}</td>
                     <td>{{item.header}}</td>
-                    <td><a href="{{ url_for('moudle.mondule_info', id=item.id) }}">查看详情</a></td>
+                    <td><a href="{{ url_for('api.list', id=item.id) }}">查看详情</a></td>
                 </tr>
         {% endfor %}
     {% endif %}
